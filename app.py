@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 from flask import Flask, render_template, redirect, url_for, session, flash
-app = Flask(__name__)
+app = Flask(__name__, template_folder='app_templates')
 app.secret_key = "finot_super_secret_key"
 
 # ዳታቤዝ እና የፋይል መጫኛ ማውጫ
