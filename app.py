@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 import os
+from datetime import datetime
 from flask import Flask, render_template, redirect, url_for, session, flash
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__, template_folder='app_templates')
 app.secret_key = "finot_super_secret_key"
 
