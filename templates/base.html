@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ፍኖት የበጎ አድራጎት ማህበር</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+/* 🌟 የባነሩ ዋና ማቀፊያ */
+.header-banner {
+    display: flex;          
+    align-items: center;    /* ሁሉንም በአቀባዊ እኩል መሃል ያደርጋል */
+    justify-content: space-between; /* በግራ፣ በመሃልና በቀኝ እኩል ያሰራጫል */
+    padding: 20px 15px;     /* ለስልክ የሚሆን ምቹ ክፍተት */
+    background: linear-gradient(135deg, #005a87 0%, #0073aa 100%); 
+    color: white;           
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+    border-bottom: 3px solid #ffcc00; 
+}
 
+/* 📝 የጽሑፎቹ ስታይል (በማንኛውም ስክሪን ላይ እንዳይቆራረጡና መጠናቸው እንዲያምር) */
+.header-banner .text-box {
+    flex: 1;                /* የግራና ቀኙ እኩል ስፋት እንዲይዙ */
+}
+
+.header-banner h1 {
+    font-size: 1.1rem;      /* በስልክ ላይም ጽሑፉ ጥቅጥቅ ብሎ በአንድ መስመር እንዲይዝ */
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+}
+
+/* 🎯 የመሃሉ ሎጎ ስታይል (መጠኑ ትንሽ ቀነስ ተደርጓል) */
+.logo-img {
+    width: 75px;            /* በስሞች መካከል በትክክል እንዲያዝ መጠኑ ሰብሰብ ያለ ነው */
+    height: 75px;          
+    object-fit: cover;      
+    border-radius: 50%;     
+    border: 3px solid white; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    margin: 0 10px;         /* ከግራና ቀኝ ጽሑፎች ጋር ያለው ክፍተት */
+    flex-shrink: 0;         /* ሎጎው በምንም ሁኔታ እንዳይጨፈለቅ */
+}
+
+/* 📱 ለትላልቅ ስክሪኖች (ኮምፒውተር) የጽሑፍ መጠን ማሳደጊያ */
+@media (min-width: 768px) {
+    .header-banner h1 {
+        font-size: 1.6rem;  /* በትልልቅ ስክሪን ላይ ጽሑፉ ጎልቶ እንዲታይ */
+    }
+    .logo-img {
+        width: 110px;       /* በኮምፒውተር ላይ ሎጎው እንዲያድግ */
+        height: 110px;
+    }
+}
+/* 🎯 ሎጎው ፍፁም ክብ እና ማራኪ እንዲሆን (አንድ ወጥ አሰራር) */
+.logo-img {
+    width: 120px;           /* መጠኑን ከ 100px እስከ 140px እንደ ምርጫህ አስተካክል */
+    height: 120px;          /* ቁመቱና ስፋቱ እኩል ሲሆን ክብነቱ ያምራል */
+    object-fit: cover;      /* ፎቶው እንዳይጨፈለቅ ይጠብቀዋል */
+    border-radius: 50%;     /* 🔴 ፍፁም ክብ ለማድረግ ሁልጊዜ 50% ይጠቀሙ */
+}
+        /* 🗂️ ለአዲሱ Dropdown-content የተደረገ ማስተካከያ */
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: white; 
+            min-width: 160px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15); 
+            z-index: 1; 
+            border-radius: 0 0 4px 4px; 
+            top: 100%;
+            left: 0;
+            list-style: none; /* የነጥብ ምልክቶችን ለማጥፋት */
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content a { 
+            color: #333; 
+            padding: 12px 16px; 
+            display: block; 
+            text-align: left;
+            font-weight: normal;
+            border-top: none; /* በኮምፒውተር ላይ መስመር እንዳይኖር */
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #0073aa;
+        }
+
+        /* በኮምፒውተር ላይ ማውዙ ሲያርፍበትም እንዲከፈት */
+        .dropdown:hover .dropdown-content { 
+            display: block; 
+        }
+
+        /* በሞባይል ላይ የሚሆን ማስተካከያ */
+        @media (max-width: 600px) {
+            .dropdown-content {
+                position: relative;
+                box-shadow: none;
+                background-color: #005a87;
+                width: 100%;
+            }
+            .dropdown-content a {
+                color: white;
+                padding-left: 25px;
+                border-top: 1px solid #006699;
+            }
+            .dropdown:hover .dropdown-content {
+                display: none; /* በሞባይል በንክኪ ብቻ እንዲሆን */
+            }
+        }
+
+        /* መሠረታዊ ገጽታ */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f6f9; 
+            color: #333;
+        }
+
+        /* የላይኛው ማውጫ (Navbar) */
+        .navbar { 
+            display: flex; 
+            background-color: #0073aa; 
+            padding: 0 15px; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            padding: 20px 15px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #005a87;
+        }
+
+        /* 📱 ለሞባይል ስልክ የተደረገ ማስተካከያ (Responsive) */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none; /* መጀመሪያ ይደበቃል */
+                margin-top: 10px;
+            }
+            .nav-links.active {
+                display: flex; /* ሲነካ ይከፈታል */
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links a {
+                padding: 12px 10px;
+                border-top: 1px solid #005a87;
+            }
+            .menu-toggle {
+                display: block !important;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* 📦 የይዘት ማቀፊያ (Container) */
+        .container { 
+            padding: 20px; 
+            max-width: 800px; 
+            margin: auto; 
+            background: white; 
+            margin-top: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            min-height: 70px;
+        }
+        
+        .btn { 
+            background-color: #0073aa; 
+            color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-top: 10px; 
+            font-weight: bold;
+        }
+        .btn:hover { background-color: #005a87; }
+    </style>
+</head>
+<body>
+<header>
+<div class="header-banner">
+    
+    <div class="text-box" style="text-align: left;">
+        <h1>ፍኖት የበጎ አድራጎት ማህበር</h1>
+    </div>
+    
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" class="logo-img" alt="logo">
+    
+    <div class="text-box" style="text-align: right;">
+        <h1>Finot non-profit Association</h1>
+    </div>
+
+</div>
+<div class="navbar">
+    <a href="/" class="nav-brand">ፍኖት (FINOT)</a>
+    
+<div class="menu-toggle" id="mobile-menu">☰</div>  
+
+ <ul class="nav-links" id="nav-list">
+
+        <li><a href="/">ዋና ገጽ(Home)</a></li> 
+
+        
+
+        <li class="dropdown" id="about-dropdown">
+
+            <a href="#" onclick="toggleMenu('aboutMenu')">ስለ እኛ(about us) <i class="fas fa-caret-down"></i></a>
+
+            <ul id="aboutMenu" class="dropdown-content">
+
+            <li><a href="/vision" style="color: #000000; font-weight: bold; text-decoration: none;">ራዕይ(Vision)</a></li>
+
+            <li><a href="/mission" style="color: #000000; font-weight: bold; text-decoration: none;">ተልዕኮ(Mission)</a></li>
+
+            <li><a href="/goal" style="color: #000000; font-weight: bold; text-decoration: none;">ግብ(Goal)</a></li>
+
+            <li><a href="/address" style="color: #000000; font-weight: bold; text-decoration: none;">አድራሻ(Address)</a></li>
+
+            </ul>
+    </li> <li><a href="/payment">እርዳታ(Donate)</a></li>
+    <li><a href="/contact">መልዕክት (Message)</a></li>
+    <li><a href="/admin/login" style="color: #ffcc00; font-weight: bold;">⚙️ አድሚን(Admin)</a></li>
+</ul>
+</div>
+<div class="container">
+    {% block content %} {% endblock %}
+</div>
+
+<script>
+    // 1. የሞባይል Hamburger ሜኑ መክፈቻና መዝጊያ
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+    
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    }
+
+    // 2. የአንተ የ Dropdown መክፈቻና መዝጊያ ተግባር (toggleMenu)
+    function toggleMenu(menuId) {
+        const menu = document.getElementById(menuId);
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    // 3. ከማውጫው ውጭ በባዶ ቦታ ላይ ሲነካ በራሱ እንዲዘጋ
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown a') && !event.target.matches('.dropdown a i')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].style.display = "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>
